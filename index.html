@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="EcoAlerta: prototipo comunitario para registrar puntos con residuos sólidos y aprender alternativas responsables.">
+<title>EcoAlerta | Espacios limpios, comunidad activa</title>
+<style>
+:root{--green:#176b4d;--green2:#22845e;--mint:#eaf6ef;--ink:#18332a;--muted:#5e7168;--paper:#f7faf8;--line:#d9e6de;--white:#fff;--amber:#fff4d8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+a{color:inherit}.wrap{width:min(1120px,92%);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0}.brand{display:flex;align-items:center;gap:.65rem;font-weight:850;font-size:1.25rem;letter-spacing:-.03em}.logo{width:42px;height:42px;border-radius:14px;background:var(--green);color:white;display:grid;place-items:center;font-size:1.35rem}.navlinks{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.93rem;color:var(--muted)}.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--green)}
+.hero{padding:4.3rem 0 3.4rem;background:radial-gradient(ellipse at 80% 10%,#d9f0e1 0,transparent 40%),linear-gradient(135deg,#f7faf8,#eaf6ef)}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:.45rem;color:var(--green);font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em}.hero h1{font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.03;letter-spacing:-.06em;margin:.8rem 0 1.1rem;max-width:700px}.hero p{font-size:1.12rem;color:var(--muted);max-width:620px}.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem}.btn{border:0;border-radius:12px;padding:.85rem 1.1rem;font-weight:750;cursor:pointer;text-decoration:none;display:inline-flex;justify-content:center;align-items:center;gap:.45rem;font-size:.95rem}.primary{background:var(--green);color:white}.primary:hover{background:#10553c}.secondary{background:white;color:var(--green);border:1px solid var(--line)}.hero-card{background:white;border:1px solid var(--line);border-radius:28px;padding:1.3rem;box-shadow:0 20px 50px #1c59300d;transform:rotate(1deg)}.landscape{border-radius:20px;background:linear-gradient(180deg,#dff2e6 0 52%,#b9dfc6 52% 100%);height:245px;position:relative;overflow:hidden;display:flex;align-items:end;justify-content:center}.sun{position:absolute;right:26px;top:24px;width:48px;height:48px;border-radius:50%;background:#f5d778}.hill{position:absolute;bottom:0;width:125%;height:100px;background:#80bf91;border-radius:50% 50% 0 0;left:-12%}.hill2{position:absolute;bottom:-22px;width:130%;height:100px;background:#4e9b70;border-radius:50% 50% 0 0;right:-25%}.bottleplant{z-index:2;font-size:5rem;filter:drop-shadow(0 5px 2px #285f3a22);margin-bottom:28px}.mini-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:1rem}.stat{padding:.85rem;border-radius:15px;background:var(--paper)}.stat strong{display:block;font-size:1.3rem}.stat span{font-size:.8rem;color:var(--muted)}
+section{padding:4rem 0}.section-head{max-width:700px;margin-bottom:1.8rem}.section-head h2{font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.15;letter-spacing:-.04em;margin:.45rem 0}.section-head p{color:var(--muted);margin:0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:1.35rem}.icon{font-size:1.8rem}.card h3{margin:.5rem 0}.card p{margin:0;color:var(--muted);font-size:.95rem}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:1.4rem}.panel h3{margin-top:0}.field{display:flex;flex-direction:column;gap:.35rem;margin:.9rem 0}.field label{font-weight:700;font-size:.9rem}.field input,.field select,.field textarea{width:100%;padding:.8rem .85rem;border:1px solid #cbdcd1;border-radius:11px;background:#fff;font:inherit;color:var(--ink)}.field textarea{min-height:95px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{outline:3px solid #bce3ca;border-color:var(--green)}.hint{color:var(--muted);font-size:.82rem}.notice{background:var(--amber);border:1px solid #f0dfad;padding:.8rem 1rem;border-radius:12px;color:#664b12;font-size:.88rem;margin:.8rem 0}.success{display:none;background:var(--mint);border:1px solid #b9dfc6;border-radius:12px;padding:.9rem;margin-top:1rem}.report-list{display:flex;flex-direction:column;gap:.7rem}.report{border:1px solid var(--line);border-radius:14px;padding:.9rem;background:#fff}.report-top{display:flex;justify-content:space-between;gap:.6rem;align-items:start}.pill{font-size:.75rem;border-radius:999px;padding:.25rem .55rem;background:var(--mint);color:var(--green);font-weight:750;white-space:nowrap}.report small{color:var(--muted)}.empty{border:1px dashed #cbdcd1;border-radius:14px;padding:1.2rem;color:var(--muted);text-align:center}
+.chatbox{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:white}.chat-head{background:var(--green);color:white;padding:1rem 1.1rem;display:flex;align-items:center;gap:.75rem}.chat-head .avatar{background:#ffffff25;border-radius:12px;width:40px;height:40px;display:grid;place-items:center;font-size:1.3rem}.chat-head strong{display:block}.chat-head small{opacity:.8}.chat-messages{height:320px;overflow:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem;background:#fbfdfb}.bubble{max-width:88%;padding:.75rem .9rem;border-radius:15px;font-size:.92rem;white-space:pre-wrap}.bot{align-self:flex-start;background:var(--mint);border-bottom-left-radius:4px}.user{align-self:flex-end;background:#e9eef0;border-bottom-right-radius:4px}.chat-quick{display:flex;gap:.45rem;flex-wrap:wrap;padding:.7rem .8rem;border-top:1px solid var(--line)}.quick{border:1px solid var(--line);background:white;border-radius:999px;padding:.45rem .65rem;font-size:.78rem;cursor:pointer;color:var(--green)}.chat-input{display:flex;gap:.5rem;padding:.8rem;border-top:1px solid var(--line)}.chat-input input{min-width:0;flex:1;border:1px solid var(--line);border-radius:11px;padding:.75rem;font:inherit}.chat-input button{border:0;background:var(--green);color:white;border-radius:11px;padding:.65rem .9rem;font-weight:750;cursor:pointer}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}.step{padding:1rem;border-top:3px solid var(--green);background:white;border-radius:0 0 15px 15px}.step b{display:block;margin:.4rem 0}.step p{font-size:.88rem;color:var(--muted);margin:0}.footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}.footer-grid{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.smallprint{font-size:.8rem;color:var(--muted)}
+@media(max-width:780px){.hero-grid,.two-col{grid-template-columns:1fr}.hero{padding:2.7rem 0}.hero-card{max-width:500px}.cards{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}.nav{align-items:flex-start}.navlinks{gap:.7rem;justify-content:flex-end}.hero h1{font-size:2.8rem}}
+@media(max-width:420px){.steps{grid-template-columns:1fr}.navlinks{font-size:.8rem}.hero h1{font-size:2.45rem}}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="#inicio" aria-label="EcoAlerta inicio"><span class="logo">♻</span> EcoAlerta</a>
+  <nav class="navlinks" aria-label="Navegación principal"><a href="#como-funciona">Cómo funciona</a><a href="#reportar">Reportar</a><a href="#asistente">Chatbot</a></nav>
+</header>
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">♻ Una iniciativa comunitaria</span>
+      <h1>Calles más limpias empiezan con una alerta.</h1>
+      <p>EcoAlerta es un prototipo comunitario para registrar puntos donde se acumulan residuos, compartir orientación ambiental y promover pequeñas acciones por espacios públicos más limpios.</p>
+      <div class="actions"><a class="btn primary" href="#reportar">＋ Registrar un reporte</a><a class="btn secondary" href="#asistente">Hablar con el chatbot ↗</a></div>
+      <p class="smallprint">Prototipo demostrativo. Los reportes se guardan en este navegador y no se envían automáticamente a una municipalidad.</p>
+    </div>
+    <div class="hero-card" aria-label="Ilustración de naturaleza y reutilización">
+      <div class="landscape"><span class="sun"></span><div class="hill"></div><div class="hill2"></div><span class="bottleplant">🪴</span></div>
+      <div class="mini-stats"><div class="stat"><strong id="reportCount">0</strong><span>reportes guardados en este navegador</span></div><div class="stat"><strong>3 pasos</strong><span>reporta · infórmate · actúa</span></div></div>
+    </div>
+  </div>
+</section>
+<section id="como-funciona">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">La idea</span><h2>Una herramienta sencilla para pasar de observar a actuar</h2><p>La plataforma ayuda a organizar información comunitaria y compartir ideas. No reemplaza los servicios municipales ni confirma la atención de un punto crítico.</p></div>
+  <div class="cards">
+   <article class="card"><div class="icon">📍</div><h3>1. Registra el punto</h3><p>Describe el lugar y el tipo de residuo observado. Evita incluir datos personales de otras personas.</p></article>
+   <article class="card"><div class="icon">💬</div><h3>2. Consulta al chatbot</h3><p>Recibe orientación básica sobre separación, reutilización y disposición responsable.</p></article>
+   <article class="card"><div class="icon">🌱</div><h3>3. Propón una acción</h3><p>Explora acciones comunitarias seguras, como reducir residuos, reutilizar materiales o coordinar una jornada autorizada.</p></article>
+  </div>
+ </div>
+</section>
+<section id="reportar" style="background:#edf6f0">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">Reporte comunitario</span><h2>¿Dónde observaste residuos acumulados?</h2><p>Completa los datos para crear un registro de demostración. No necesitas indicar tu nombre.</p></div>
+  <div class="two-col">
+   <form class="panel" id="reportForm">
+    <div class="field"><label for="place">Lugar o referencia aproximada *</label><input id="place" required maxlength="120" placeholder="Ej. cerca del parque principal"></div>
+    <div class="field"><label for="district">Distrito o zona (opcional)</label><input id="district" maxlength="80" placeholder="Ej. Los Olivos"></div>
+    <div class="field"><label for="wasteType">Tipo de residuo observado *</label><select id="wasteType" required><option value="">Selecciona una opción</option><option>Plásticos y botellas</option><option>Bolsas y residuos mezclados</option><option>Restos de comida</option><option>Cartón y papel</option><option>Escombros o muebles</option><option>Otro / varios tipos</option></select></div>
+    <div class="field"><label for="details">Descripción (opcional)</label><textarea id="details" maxlength="500" placeholder="Describe brevemente lo que observaste. No incluyas datos personales."></textarea></div>
+    <button class="btn primary" type="submit">Guardar reporte en este dispositivo</button>
+    <div class="success" id="formSuccess" role="status"></div>
+    <p class="hint">Los registros se almacenan localmente en este navegador. No se suben a un servidor ni son visibles para otros visitantes.</p>
+   </form>
+   <div class="panel"><h3>Reportes de este navegador</h3><p class="hint">Esta lista es local y demostrativa. Si abres la página en otro dispositivo, no verás estos registros.</p><div class="report-list" id="reportList"><div class="empty">Todavía no hay reportes guardados.</div></div><div class="actions"><button class="btn secondary" type="button" id="exportBtn">Exportar registros (.json)</button><button class="btn secondary" type="button" id="clearBtn">Borrar registros</button></div></div>
+  </div>
+ </div>
+</section>
+<section id="asistente">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">Asistente EcoAlerta</span><h2>Pregunta al chatbot ecológico</h2><p>Este chatbot funciona con respuestas predefinidas en el navegador; no utiliza una API externa ni inteligencia artificial conectada.</p></div>
+  <div class="two-col">
+   <div class="chatbox">
+    <div class="chat-head"><div class="avatar">🌿</div><div><strong>EcoBot</strong><small>Asistente informativo · modo demostración</small></div></div>
+    <div class="chat-messages" id="chatMessages" aria-live="polite"><div class="bubble bot">¡Hola! Soy EcoBot, el asistente de EcoAlerta. Puedo orientarte sobre reportes de residuos, separación, reutilización y acciones comunitarias. ¿Qué te gustaría saber?</div></div>
+    <div class="chat-quick"><button class="quick" data-question="¿Cómo reporto residuos?">Cómo reportar</button><button class="quick" data-question="¿Qué hago con botellas de plástico?">Reutilizar botellas</button><button class="quick" data-question="¿Cómo separo mis residuos?">Separar residuos</button><button class="quick" data-question="¿Qué puede hacer mi comunidad?">Acciones comunitarias</button></div>
+    <form class="chat-input" id="chatForm"><input id="chatInput" aria-label="Escribe tu pregunta" placeholder="Escribe una pregunta..." maxlength="300" required><button type="submit">Enviar</button></form>
+   </div>
+   <div class="panel"><h3>¿Qué puede hacer EcoBot?</h3><ul><li>Explicar cómo registrar un punto en el formulario.</li><li>Dar recomendaciones generales para reutilizar y separar residuos.</li><li>Sugerir acciones comunitarias seguras.</li><li>Aclarar los límites del prototipo y evitar afirmar que un reporte fue atendido.</li></ul><div class="notice">EcoBot no contacta autoridades, no consulta mapas en tiempo real y no verifica la ubicación ni el recojo de residuos.</div><p class="smallprint">Para ofrecer respuestas actualizadas por IA o enviar reportes de forma oficial, se necesitarían integraciones adicionales y revisar la privacidad de los datos.</p></div>
+  </div>
+ </div>
+</section>
+<section style="background:#edf6f0">
+ <div class="wrap">
+  <div class="section-head"><span class="eyebrow">Uso responsable</span><h2>De una observación a una acción concreta</h2><p>El prototipo organiza una posible experiencia de usuario en cuatro pasos.</p></div>
+  <div class="steps"><div class="step"><span>01</span><b>Observar</b><p>Identificar residuos acumulados desde un lugar seguro.</p></div><div class="step"><span>02</span><b>Registrar</b><p>Describir el lugar y el tipo de residuo sin exponer datos personales.</p></div><div class="step"><span>03</span><b>Orientarse</b><p>Consultar recomendaciones generales en EcoBot.</p></div><div class="step"><span>04</span><b>Coordinar</b><p>Contactar los canales oficiales de la municipalidad por separado si se requiere atención.</p></div></div>
+ </div>
+</section>
+</main>
+<footer class="footer"><div class="wrap footer-grid"><div><strong>EcoAlerta</strong><br><span>Prototipo académico · residuos sólidos y espacios públicos</span></div><div>Hecho para promover información y participación responsable.</div></div></footer>
+<script>
+const STORAGE_KEY = "ecoalerta_reports_v1";
+const $ = (id) => document.getElementById(id);
+function getReports(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]")}catch(e){return []}}
+function saveReports(reports){localStorage.setItem(STORAGE_KEY,JSON.stringify(reports))}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g, ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]))}
+function renderReports(){
+ const reports=getReports(); $("reportCount").textContent=reports.length;
+ const list=$("reportList");
+ if(!reports.length){list.innerHTML='<div class="empty">Todavía no hay reportes guardados.</div>';return}
+ list.innerHTML=reports.slice().reverse().map(r=>`<article class="report"><div class="report-top"><strong>${escapeHtml(r.place)}</strong><span class="pill">${escapeHtml(r.type)}</span></div><small>${escapeHtml(r.district||"Zona no especificada")} · ${new Date(r.createdAt).toLocaleString("es-PE")}</small>${r.details?`<p>${escapeHtml(r.details)}</p>`:""}</article>`).join("");
+}
+$("reportForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const report={id:Date.now(),place:$("place").value.trim(),district:$("district").value.trim(),type:$("wasteType").value,details:$("details").value.trim(),createdAt:new Date().toISOString()};
+ if(!report.place||!report.type)return;
+ const reports=getReports();reports.push(report);saveReports(reports);renderReports();
+ $("formSuccess").style.display="block";$("formSuccess").textContent="Reporte guardado en este navegador. Recuerda: no se ha enviado a ninguna entidad externa.";
+ e.target.reset();
+});
+$("exportBtn").addEventListener("click",()=>{
+ const blob=new Blob([JSON.stringify(getReports(),null,2)],{type:"application/json"});
+ const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="ecoalerta-reportes.json";a.click();URL.revokeObjectURL(url);
+});
+$("clearBtn").addEventListener("click",()=>{
+ if(confirm("¿Seguro que quieres borrar todos los reportes guardados en este navegador?")){localStorage.removeItem(STORAGE_KEY);$("formSuccess").style.display="none";renderReports()}
+});
+const answers=[
+ {keys:["report","registr","ubic","lugar","basura","acumul"],text:"Para registrar un punto, entra en “Registrar un reporte”, escribe una referencia aproximada, selecciona el tipo de residuo y guarda el formulario. En esta versión el registro queda solo en tu navegador; no se envía a una municipalidad."},
+ {keys:["botella","maceta","reutil"],text:"Antes de reutilizar una botella, lávala y revisa que esté en buenas condiciones. Si la conviertes en maceta, realiza cortes con ayuda de una persona adulta o con herramientas adecuadas, protege los bordes y añade drenaje. Reutilizar una botella no sustituye la correcta gestión de los demás residuos."},
+ {keys:["separ","recicl"],text:"Como orientación general, separa los residuos según las reglas de tu localidad y las indicaciones del programa de reciclaje disponible. Mantén los materiales reciclables limpios y secos cuando corresponda, y no mezcles residuos peligrosos con los comunes."},
+ {keys:["comunidad","vecin","campaña","particip"],text:"La comunidad puede coordinar una jornada autorizada, difundir horarios oficiales de recojo, reducir residuos de un solo uso y reportar puntos críticos por los canales municipales correspondientes. Eviten manipular objetos cortantes, sustancias desconocidas o residuos peligrosos."},
+ {keys:["municip","recojo","autoridad","oficial"],text:"EcoAlerta no envía reportes a autoridades ni confirma recojos. Para solicitar atención real, consulta los canales oficiales de tu municipalidad y comparte la ubicación y descripción siguiendo sus instrucciones."},
+ {keys:["hola","buenas","saludos"],text:"¡Hola! Puedo ayudarte con reportes, reutilización de botellas, separación de residuos y acciones comunitarias. Escribe una pregunta o elige uno de los botones sugeridos."},
+ {keys:["gracias"],text:"¡De nada! Recuerda que EcoAlerta es un prototipo: los registros no se comparten fuera de este navegador."}
+];
+function botAnswer(q){
+ const t=q.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+ for(const a of answers){if(a.keys.some(k=>t.includes(k)))return a.text}
+ return "Puedo ofrecer orientación básica sobre cómo registrar residuos, reutilizar botellas, separar materiales y coordinar acciones comunitarias. Prueba con una de esas preguntas. Esta versión usa respuestas predefinidas y no consulta fuentes externas en tiempo real.";
+}
+function addBubble(text,who){const d=document.createElement("div");d.className="bubble "+who;d.textContent=text;$("chatMessages").appendChild(d);$("chatMessages").scrollTop=$("chatMessages").scrollHeight}
+function ask(q){if(!q.trim())return;addBubble(q,"user");setTimeout(()=>addBubble(botAnswer(q),"bot"),180)}
+$("chatForm").addEventListener("submit",e=>{e.preventDefault();const q=$("chatInput").value.trim();if(q){ask(q);$("chatInput").value=""}});
+document.querySelectorAll(".quick").forEach(b=>b.addEventListener("click",()=>ask(b.dataset.question)));
+renderReports();
+</script>
+</body>
+</html>
